@@ -4,7 +4,7 @@ app = flask.Flask(__name__)
 
 @app.route('/')
 def index():
-    return 'This is main page'
+    return flask.render_template('index.html')
 
 @app.route('/first')
 def first_view():
