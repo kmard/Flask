@@ -20,6 +20,22 @@ def welcome_view():
                                  number=number,
                                  num_weeks=num_weeks,)
 
+@app.route('/people/<int:people_id>')
+def people_view(people_id):
+    people = {
+        1:'Jonn Smith',
+        2:'Eva Braun',
+        3:'Philip Djonn',
+        4:'Richard Gramm'
+    }
+    try:
+      people_name = people[people_id]
+    except KeyError:
+        return flask.abort(404)
+
+    return flask.render_template('people.html',people_name = people_name )
+
+
 @app.route('/third')
 def third_view():
     return 'This is third page'
